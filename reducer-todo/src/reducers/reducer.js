@@ -13,6 +13,21 @@ export const completedReducer = (state, action) => {
                completed: false,
                id: new Date()
            }]};
+        case 'TOGGLE_STATE':
+            console.log('togglestate', action.payload)
+            
+            const newData = state.data.map(item => {
+                if (item.id === action.payload.id){
+                    item.completed = ! item.completed
+                } 
+                return item
+            }) ;
+            return {data: newData};
+        case 'CLEAR_COMPLETED':
+            return {
+                ...state,
+                data: state.data.filter(todo => !todo.completed)
+            }   
     default:
     return state;
     }

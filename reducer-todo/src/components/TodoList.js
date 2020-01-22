@@ -5,15 +5,31 @@ import Todo from './Todo';
 
 const TodoList = props => {
     console.log(props);
-    
-    
+    // const toggleItem = id => {
+    //     props.state.data.map(todo => {
+    //         if (todo.id === id ) {
+    //             return {
+    //                 ...todo,
+    //                 completed: ! todo.completed
+    //             };
+    //         } else {
+    //             return todo;
+    //         }
+    //     })
+    // }
+
     return (
         <div>
             {props.state.data.map(item => (
             <Todo
             key = {item.id}
             todo = {item.todo} 
-            completed = {item.completed}/>
+            item = {item}
+            completed = {item.completed}
+            dispatch = {props.dispatch}
+            completedReducer = {props.completedReducer}
+            // toggleItem = {toggleItem}
+            />
             ))}
             {/* <button onClick={() =>
             dispatch({type: 'ADD_ITEM', payload: newTodo})} ></button> */}

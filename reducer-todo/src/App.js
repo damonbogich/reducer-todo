@@ -12,14 +12,19 @@ function App() {
   return (
     <div className="App">
       <TodoList
-      state = {state}/>
+      state = {state}
+      dispatch = {dispatch}
+      completedReducer = {completedReducer}
+      />
       <TodoForm
       props = {completedReducer}
       dispatch = {dispatch}/>
     </div>
-    //right now trying to pass the completedReducer with case ADD_TODO to the form, so that my form can add a todo.  I'm putting it in as props, but not sure how to call it over there.
-      //first will try putting it in the onClick
-        //when i click the button it seems to update my data array, but the item is showing up as undefined for some reason, so no new todos are on screen
+    //Now step 4: Toggle the completed field
+      //Build a function that will dispatch an action to add a new todo
+        //Done in reducer component... Not sure at all about my logic
+      //Invoke this new function when I click on a todo
+        //need to put something in todo component: going to try to pass completedReducer and dispatch through todolist and try to pass them from todolist to todo
   );
 }
 

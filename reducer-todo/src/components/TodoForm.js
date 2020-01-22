@@ -9,18 +9,8 @@ const TodoForm = props => {
     setNewTodo(e.target.value);
   };
 
-// const addTodo = e => {
-//     e.preventDefault();
-//     props.dispatch.addTodo(newTodo);
-//     setNewTodo({
-//         todo: "",
-//         completed: false,
-//         id: new Date()
-//     })
-// } 
-
   return (
-    <form>
+    <div>
       <input
         className="new-todo"
         type="text"
@@ -30,11 +20,16 @@ const TodoForm = props => {
       />
       <button
         type="button"
-        onClick = {() => props.dispatch({type: "ADD_TODO"})}
+        onClick = {() => props.dispatch({type: "ADD_TODO", payload: newTodo})}
       >
         Add item
       </button>
-    </form>
+      <button type="button"
+      onClick = {() => props.dispatch({type: "CLEAR_COMPLETED", payload: props.item })}>
+          clear completed
+
+      </button>
+    </div>
   );
 };
 export default TodoForm;
