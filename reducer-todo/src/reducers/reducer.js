@@ -11,7 +11,7 @@ export const completedReducer = (state, action) => {
            return {data: [...state.data, {
                todo: action.payload,
                completed: false,
-               id: Date.Now
+               id: new Date()
            }]};
     default:
     return state;
