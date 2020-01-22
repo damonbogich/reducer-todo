@@ -3,17 +3,16 @@
  
 
 export const completedReducer = (state, action) => {
+    console.log('state', state);
+    console.log('action', action);
    switch(action.type) {
        case 'ADD_TODO':
-           console.log(state, action)
-           return [
-               ...state,
-               {
-                   item: action.payload,
-                   completed: false,
-                   id: Date.now()
-               }
-            ];
+           
+           return {data: [...state.data, {
+               todo: action.payload,
+               completed: false,
+               id: Date.Now
+           }]};
     default:
     return state;
     }
@@ -21,21 +20,13 @@ export const completedReducer = (state, action) => {
 
 
 
-export const initialStateObject = [
-    {
-        item: 'Run',
+export const initialStateObject = {
+    data: [
+        {
+        todo: 'learn about reducers',
         completed: false,
-        id: 1
-    },
-    {
-        item: 'Shower',
-        completed: false,
-        id: 2
-    },
-    {
-        item: 'Make Dinner',
-        completed: false,
-        id: 3
-    }
-]
+        id: 3892987589
+        }
+    ]
+}
 

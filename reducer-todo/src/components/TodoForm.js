@@ -21,8 +21,8 @@ const TodoForm = () => {
       <button
         type="button"
         onClick={() => {
-          dispatch({ type: "ADD_TODO", payload: newTodo });
-          console.log('hello');
+          dispatch({ type: "ADD_ITEM", payload: newTodo });
+          console.log('hello')
         }}
       >
         Add item

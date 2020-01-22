@@ -2,10 +2,11 @@ import React, {useState, useReducer} from 'react';
 import {completedReducer, initialStateObject} from '../reducers/reducer';
 import Todo from './Todo';
 
+//need to get rid of state, dispatch and need to add
 
 const TodoList = () => {
     const [state, dispatch] = useReducer(completedReducer, initialStateObject);
-    const [addItem, setAddItem] = useState('');
+    // const [addItem, setAddItem] = useState('');
     console.log(state)
 
     // const handleChanges = e => {
@@ -14,10 +15,10 @@ const TodoList = () => {
     
     return (
         <div>
-            {state.map(item => (
+            {state.data.map(item => (
             <Todo
             key = {item.id}
-            item = {item.item} 
+            item = {item.todo} 
             completed = {item.completed}/>
             ))}
             {/* <button onClick={() =>
